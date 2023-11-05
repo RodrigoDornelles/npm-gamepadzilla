@@ -8,12 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = obj.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
-        obj.mouses[0] = {x, y}
+        obj.fingers[0] = {x, y}
         obj.draw(obj)
-      })
-      obj.canvas.addEventListener("mouseleave", (event) => {
-        obj.mouses.pop()
-        obj.draw(obj)
-      })
+      })      
     })
 })

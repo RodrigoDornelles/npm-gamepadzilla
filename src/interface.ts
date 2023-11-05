@@ -13,7 +13,7 @@ interface ObjectGpz {
     draw(self: ObjectGpz): void,
     canvas: HTMLCanvasElement,
     ctx2d: CanvasRenderingContext2D,
-    mouses: Array<Vector2d>
+    fingers: Array<Vector2d>
 }
 
 export  {ClassGpz, ObjectGpz}

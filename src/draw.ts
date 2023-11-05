@@ -17,8 +17,8 @@ const draw = {
         const radius: number = 25;
         let color: string = '#88888880'
 
-        if (self.mouses.length) {
-            const distance = Math.sqrt((self.mouses[0].x - centerX) ** 2 + (self.mouses[0].y - centerY) ** 2)
+        if (self.fingers.length) {
+            const distance = Math.sqrt((self.fingers[0].x - centerX) ** 2 + (self.fingers[0].y - centerY) ** 2)
             if (distance < radius) {
                 color = 'red'
             }
@@ -36,8 +36,8 @@ const draw = {
     
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
     
-        const posX: number = self.mouses[0]?.x ?? centerX
-        const posY: number = self.mouses[0]?.y ?? centerY
+        const posX: number = self.fingers[0]?.x ?? centerX
+        const posY: number = self.fingers[0]?.y ?? centerY
         const distance = Math.sqrt((posX - centerX) ** 2 + (posY - centerY) ** 2)
     
         let secondCircleX = posX
