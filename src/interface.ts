@@ -16,4 +16,4 @@ interface ObjectGpz {
     fingers: Array<Vector2d>
 }
 
-export  {ClassGpz, ObjectGpz}
+export  {ClassGpz, ObjectGpz, Vector2d}
