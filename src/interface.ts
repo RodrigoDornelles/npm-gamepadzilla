@@ -14,12 +14,20 @@ enum ClassGpz {
     Btn = '.gpz-btn',
 }
 
+interface Keycode {
+    key: string,
+    code: string,
+    keyCode: number
+}
+
 interface ObjectGpz {
     type: ClassGpz,
+    emu(self: ObjectGpz): void,
     draw(self: ObjectGpz): void,
     canvas: HTMLCanvasElement,
     ctx2d: CanvasRenderingContext2D,
     fingers: Array<Vector2d>
+    fakekeys: Array<Keycode>
 }
 
-export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM}
+export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode}

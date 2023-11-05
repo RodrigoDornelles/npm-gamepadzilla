@@ -12,16 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
       function eventClean() {
         obj.fingers = []
         obj.draw(obj)
+        obj.emu(obj)
       }
       function eventMouse(event: MouseEvent) {
         obj.fingers = handleMouse(event, obj.canvas)
         obj.draw(obj)
+        obj.emu(obj)
       }
       function eventTouch(event: TouchEvent) {
         obj.canvas.removeEventListener('mouseleave', eventClean)
         obj.canvas.removeEventListener('mousemove', eventMouse)
         obj.fingers = handleTouch(event as TouchEvent, obj.canvas)
         obj.draw(obj)
+        obj.emu(obj)
       }
       function eventGamepad() {
         const axis = handleGamepadAxis(obj.canvas)
@@ -29,11 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
           gamepadState = GamepadFSM.Online
           obj.fingers = axis
           obj.draw(obj)
+          obj.emu(obj)
         }
         if (axis.length === 0 && gamepadState == GamepadFSM.Online) {
           gamepadState = GamepadFSM.Cleanup
           obj.fingers = []
           obj.draw(obj)
+          obj.emu(obj)
         }
       }
 

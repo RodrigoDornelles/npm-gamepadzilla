@@ -19,7 +19,7 @@
     <head>
         <script src='gamepadzilla.js'></script>
     </head>
-    <body>
+    <body style="touch-action: none">
         <canvas
             class="gpz-joy"
             data-gpz-bind="ArrowUp ArrowLeft ArrowDown ArrowRight">
