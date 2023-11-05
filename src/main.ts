@@ -2,22 +2,27 @@ import { construtors } from "./construtors";
 import { handleTouch, handleMouse } from "./handlers";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const touchEvents = ['touchstart', 'touchend', 'touchcancel', 'touchmove']
+    const touchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel']
     const objects = construtors()
+    
     objects.forEach(obj => {
-      obj.canvas.addEventListener('mousemove', function (event) {
-        obj.fingers[0] = handleMouse(event, obj.canvas)
+      function eventClean() {
+        obj.fingers = []
         obj.draw(obj)
-      })
-      touchEvents.forEach(eventName => {
-        obj.canvas.addEventListener(eventName, function (event) {
-          obj.fingers[0] = handleTouch(event as TouchEvent, obj.canvas)
-          if (obj.fingers[0].x == 0 && obj.fingers[0].x == 0) {
-            obj.fingers.pop()
-          }
-          obj.draw(obj)
-        })
-      })
+      }
+      function eventMouse(event: MouseEvent) {
+        obj.fingers = handleMouse(event, obj.canvas)
+        obj.draw(obj)
+      }
+      function eventTouch(event: TouchEvent) {
+        obj.canvas.removeEventListener('mouseleave', eventClean)
+        obj.canvas.removeEventListener('mousemove', eventMouse)
+        obj.fingers = handleTouch(event as TouchEvent, obj.canvas)
+        obj.draw(obj)
+      }
+      obj.canvas.addEventListener('mouseleave', eventClean)
+      obj.canvas.addEventListener('mousemove', eventMouse)
+      touchEvents.forEach(eventName => obj.canvas.addEventListener(eventName, (event) => eventTouch(event as TouchEvent)))
     
       obj.draw(obj)
     })
