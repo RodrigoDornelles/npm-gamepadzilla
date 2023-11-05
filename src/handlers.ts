@@ -20,4 +20,29 @@ function handleTouch(event: TouchEvent, element: HTMLElement): Array<Vector2d> {
     return fingers
 }
 
-export {handleMouse, handleTouch}
+function handleGamepadAxis(element: HTMLCanvasElement): Array<Vector2d> {
+    if (!('getGamepads' in navigator)) {
+        return []
+    }
+    const gamepads = navigator.getGamepads().filter(g => g !== null) as Array<Gamepad>
+    const rect = element.getBoundingClientRect()
+    const width: number = rect.right - rect.left
+    const height: number = rect.bottom - rect.top
+    const mapValue = (value: number) => (value + 1) / 2
+    const fingers: Array<Vector2d> = []
+
+    gamepads.forEach((gamepad) => {
+        const lastOddAxisIndex = gamepad.axes.length - 1;
+        for (let pivot = 0; pivot < lastOddAxisIndex; pivot += 2) {
+            if (gamepad.axes[pivot] !== 0 || gamepad.axes[pivot + 1] !== 0) {
+                const x = mapValue(gamepad.axes[pivot]) * width
+                const y = mapValue(gamepad.axes[pivot + 1]) * height
+                fingers.push({x, y})
+            }
+        }
+    })
+
+    return fingers
+}  
+
+export {handleMouse, handleTouch, handleGamepadAxis}
