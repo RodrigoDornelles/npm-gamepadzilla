@@ -8,6 +8,7 @@ function construtors(): Array<ObjectGpz>  {
         .filter(el => el instanceof HTMLCanvasElement)
         .forEach(el => {
             objects.push({
+                mouses: [],
                 draw: draw[gpztype],
                 type: ClassGpz[gpztype],
                 canvas: el as HTMLCanvasElement,
