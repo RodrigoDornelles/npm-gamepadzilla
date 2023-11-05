@@ -11,6 +11,7 @@
     ],
     "description": "gpz is a plug and play virtual and physical gamepad for html5 mobile games. (no script need)",
     "scripts": {
+        "test": "bun test .",
         "start": "bun run build --watch",
         "build": "bun build --minify --outdir dist --target browser --asset-naming '[name].[ext]' --entry-naming '[name].[ext]' src/main.ts",
         "build:example": "npm run build && cp examples/* dist"
