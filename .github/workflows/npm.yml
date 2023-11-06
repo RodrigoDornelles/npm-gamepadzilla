@@ -1,0 +1,37 @@
+name: npm
+
+on:
+  push:
+    tags: 
+      - "*.*.*"
+
+jobs:
+  package: 
+    runs-on: ubuntu-latest
+    container: emscripten/emsdk     
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules/
+          key: npm-${{ hashFiles('package.json') }}
+      -
+        name: Install dependencies
+        run: npm install
+      -
+        name: Build project
+        run: npm run build
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish project
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

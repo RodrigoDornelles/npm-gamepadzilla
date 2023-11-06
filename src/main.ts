@@ -1,23 +1,55 @@
+import { construtors } from "./construtors";
+import { handleTouch, handleMouse, handleGamepadAxis } from "./handlers";
+import { ClassGpz, GamepadFSM } from "./interface";
+
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsWithClass = document.querySelectorAll('.gpz-joy')
-    const canvasElements = Array.from(elementsWithClass).filter((element) => element instanceof HTMLCanvasElement) as Array<HTMLCanvasElement>
-    const contexts2D = canvasElements.map((canvasElement) => {
-      return canvasElement.getContext('2d');
-    }) as Array<CanvasRenderingContext2D>
+    const touchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel']
+    const objects = construtors()
+    let gamepadState: GamepadFSM = GamepadFSM.Offline
+    
+    
+    objects.forEach(obj => {
+      function eventClean() {
+        obj.fingers = []
+        obj.draw(obj)
+        obj.emu(obj)
+      }
+      function eventMouse(event: MouseEvent) {
+        obj.fingers = handleMouse(event, obj.canvas)
+        obj.draw(obj)
+        obj.emu(obj)
+      }
+      function eventTouch(event: TouchEvent) {
+        obj.canvas.removeEventListener('mouseleave', eventClean)
+        obj.canvas.removeEventListener('mousemove', eventMouse)
+        obj.fingers = handleTouch(event as TouchEvent, obj.canvas)
+        obj.draw(obj)
+        obj.emu(obj)
+      }
+      function eventGamepad() {
+        const axis = handleGamepadAxis(obj.canvas)
+        if (axis.length > 0) {
+          gamepadState = GamepadFSM.Online
+          obj.fingers = axis
+          obj.draw(obj)
+          obj.emu(obj)
+        }
+        if (axis.length === 0 && gamepadState == GamepadFSM.Online) {
+          gamepadState = GamepadFSM.Cleanup
+          obj.fingers = []
+          obj.draw(obj)
+          obj.emu(obj)
+        }
+      }
 
-    contexts2D.forEach(ctx => {
-        const centerX: number = ctx.canvas.width / 2;
-        const centerY: number = ctx.canvas.height / 2;
-        const radius: number = 50;
-        const fillColor: string = "yellow";
-        const strokeColor: string = "black";
+      if (obj.type == ClassGpz.Joy) {
+        setInterval(eventGamepad, 1000 / 60)
+      }
 
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = fillColor;
-        ctx.fill();
-        ctx.fillStyle = strokeColor;
-        ctx.stroke();
-        ctx.closePath();
+      obj.canvas.addEventListener('mouseleave', eventClean)
+      obj.canvas.addEventListener('mousemove', eventMouse)      
+      touchEvents.forEach(eventName => obj.canvas.addEventListener(eventName, (event) => eventTouch(event as TouchEvent)))
+      
+      obj.draw(obj)
     })
 })

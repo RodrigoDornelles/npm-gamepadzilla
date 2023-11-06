@@ -1,0 +1,5 @@
+./.github/
+./tests/
+./examples/
+./dist/index.html
+LICENSE

@@ -1,0 +1,266 @@
+{
+    "Backspace": {
+        "key": "Backspace",
+        "keyCode": 8
+    },
+    "Tab": {
+        "key": "Tab",
+        "keyCode": 9
+    },
+    "Enter": {
+        "key": "Enter",
+        "keyCode": 13
+    },
+    "ShiftLeft": {
+        "key": "Shift",
+        "keyCode": 16
+    },
+    "ControlLeft": {
+        "key": "Control",
+        "keyCode": 17
+    },
+    "AltLeft": {
+        "key": "Alt",
+        "keyCode": 18
+    },
+    "CapsLock": {
+        "key": "CapsLock",
+        "keyCode": 20
+    },
+    "Escape": {
+        "key": "Escape",
+        "keyCode": 27
+    },
+    "Space": {
+        "key": " ",
+        "keyCode": 32
+    },
+    "PageUp": {
+        "key": "PageUp",
+        "keyCode": 33
+    },
+    "PageDown": {
+        "key": "PageDown",
+        "keyCode": 34
+    },
+    "End": {
+        "key": "End",
+        "keyCode": 35
+    },
+    "Home": {
+        "key": "Home",
+        "keyCode": 36
+    },
+    "ArrowLeft": {
+        "key": "ArrowLeft",
+        "keyCode": 37
+    },
+    "ArrowUp": {
+        "key": "ArrowUp",
+        "keyCode": 38
+    },
+    "ArrowRight": {
+        "key": "ArrowRight",
+        "keyCode": 39
+    },
+    "ArrowDown": {
+        "key": "ArrowDown",
+        "keyCode": 40
+    },
+    "Delete": {
+        "key": "Delete",
+        "keyCode": 46
+    },
+    "Digit0": {
+        "key": "0",
+        "keyCode": 48
+    },
+    "Digit1": {
+        "key": "1",
+        "keyCode": 49
+    },
+    "Digit2": {
+        "key": "2",
+        "keyCode": 50
+    },
+    "Digit3": {
+        "key": "3",
+        "keyCode": 51
+    },
+    "Digit4": {
+        "key": "4",
+        "keyCode": 52
+    },
+    "Digit5": {
+        "key": "5",
+        "keyCode": 53
+    },
+    "Digit6": {
+        "key": "6",
+        "keyCode": 54
+    },
+    "Digit7": {
+        "key": "7",
+        "keyCode": 55
+    },
+    "Digit8": {
+        "key": "8",
+        "keyCode": 56
+    },
+    "Digit9": {
+        "key": "9",
+        "keyCode": 57
+    },
+    "KeyA": {
+        "key": "a",
+        "keyCode": 65
+    },
+    "KeyB": {
+        "key": "b",
+        "keyCode": 66
+    },
+    "KeyC": {
+        "key": "c",
+        "keyCode": 67
+    },
+    "KeyD": {
+        "key": "d",
+        "keyCode": 68
+    },
+    "KeyE": {
+        "key": "e",
+        "keyCode": 69
+    },
+    "KeyF": {
+        "key": "f",
+        "keyCode": 70
+    },
+    "KeyG": {
+        "key": "g",
+        "keyCode": 71
+    },
+    "KeyH": {
+        "key": "h",
+        "keyCode": 72
+    },
+    "KeyI": {
+        "key": "i",
+        "keyCode": 73
+    },
+    "KeyJ": {
+        "key": "j",
+        "keyCode": 74
+    },
+    "KeyK": {
+        "key": "k",
+        "keyCode": 75
+    },
+    "KeyL": {
+        "key": "l",
+        "keyCode": 76
+    },
+    "KeyM": {
+        "key": "m",
+        "keyCode": 77
+    },
+    "KeyN": {
+        "key": "n",
+        "keyCode": 78
+    },
+    "KeyO": {
+        "key": "o",
+        "keyCode": 79
+    },
+    "KeyP": {
+        "key": "p",
+        "keyCode": 80
+    },
+    "KeyQ": {
+        "key": "q",
+        "keyCode": 81
+    },
+    "KeyR": {
+        "key": "r",
+        "keyCode": 82
+    },
+    "KeyS": {
+        "key": "s",
+        "keyCode": 83
+    },
+    "KeyT": {
+        "key": "t",
+        "keyCode": 84
+    },
+    "KeyU": {
+        "key": "u",
+        "keyCode": 85
+    },
+    "KeyV": {
+        "key": "v",
+        "keyCode": 86
+    },
+    "KeyW": {
+        "key": "w",
+        "keyCode": 87
+    },
+    "KeyX": {
+        "key": "x",
+        "keyCode": 88
+    },
+    "KeyY": {
+        "key": "y",
+        "keyCode": 89
+    },
+    "KeyZ": {
+        "key": "z",
+        "keyCode": 90
+    },
+    "F1": {
+        "key": "F1",
+        "keyCode": 112
+    },
+    "F2": {
+        "key": "F2",
+        "keyCode": 113
+    },
+    "F3": {
+        "key": "F3",
+        "keyCode": 114
+    },
+    "F4": {
+        "key": "F4",
+        "keyCode": 115
+    },
+    "F5": {
+        "key": "F5",
+        "keyCode": 116
+    },
+    "F6": {
+        "key": "F6",
+        "keyCode": 117
+    },
+    "F7": {
+        "key": "F7",
+        "keyCode": 118
+    },
+    "F8": {
+        "key": "F8",
+        "keyCode": 119
+    },
+    "F9": {
+        "key": "F9",
+        "keyCode": 120
+    },
+    "F10": {
+        "key": "F10",
+        "keyCode": 121
+    },
+    "F11": {
+        "key": "F11",
+        "keyCode": 122
+    },
+    "F12": {
+        "key": "F12",
+        "keyCode": 123
+    }
+}
