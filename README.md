@@ -26,7 +26,6 @@
         </canvas>
         <canvas
             class="gpz-btn"
-            data-gpz-color="yellow"
             data-gpz-bind="KeyF">
         </canvas>
     </body>

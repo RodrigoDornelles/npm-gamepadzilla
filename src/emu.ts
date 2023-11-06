@@ -6,8 +6,8 @@ const emu = {
     Joy(self: ObjectGpz) {
         const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
         const stick = nestFinger(center, self.fingers)
-        const dirX = center.x - stick.pos.x
-        const dirY = center.y - stick.pos.y
+        const dirX = stick.pos.x - center.x
+        const dirY = stick.pos.y - center.y
     
         if (stick.dis > 10) {
             if (dirX < 0) {
