@@ -1,16 +1,25 @@
 {
     "name": "gamepadzilla",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "RodrigoDornelles",
     "license": "AGPL-3.0-or-later",
+    "homepage": "https://rodrigodornelles.github.io/npm-gamepadzilla/",
+    "repository": "github:rodrigodornelles/npm-gamepadzilla/",
+    "funding": "https://github.com/sponsors/RodrigoDornelles",
+    "bugs": "https://github.com/RodrigoDornelles/3bc-lang/issues",
     "keywords": [
         "gamepadzilla",
         "joystick",
+        "dualshock",
+        "dualsense",
         "gamepad",
+        "xbox360",
+        "xboxone",
+        "xbox",
         "gpz",
         "bun"
     ],
-    "description": "gpz is a plug and play virtual and physical gamepad for html5 mobile games. (no script need)",
+    "description": "A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. No scripting required.",
     "scripts": {
         "test": "bun test .",
         "start": "bun run build --watch",
