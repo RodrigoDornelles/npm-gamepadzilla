@@ -14,6 +14,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
+        name: Delete large LICENSE file
+        run: rm LICENSE
+      -
         name: Restore node modules cache
         uses: actions/cache@v3
         with:
