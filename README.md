@@ -11,13 +11,18 @@
 
 ### :video_game: Preview
 
+![virtual gamepad](https://raw.githubusercontent.com/RodrigoDornelles/RodrigoDornelles/master/media/gamepadzilla-1-0-1.gif)
+
 ## :minibus: How to use
+
+ * import library with [npm](https://www.npmjs.com/package/gamepadzilla) or [cdn](https://www.jsdelivr.com/package/npm/gamepadzilla)
+ * create html5 **canvas** elements with class `gpz-joy` or `gpz-btn` and configure data attributes.
 
 ```html
 <!DOCTYPE html>
 <html>
     <head>
-        <script src='gamepadzilla.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/gamepadzilla@1/dist/gamepadzilla.js'></script>
     </head>
     <body style="touch-action: none">
         <canvas
