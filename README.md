@@ -7,7 +7,7 @@
  * gpz is fast. _(no DOM manpulation)_
  * gpz is easy. _(no Javascript needed, use only html5 attributes)_
  * gpz is pure. _(made with only typescript without dependencies)_
- * gpz hates the van's old-man. <!-- punkzilla reference -->
+ * gpz hates the van's old-man! <!-- punkzilla reference -->
 
 ### :video_game: Preview
 
