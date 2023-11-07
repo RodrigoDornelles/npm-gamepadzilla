@@ -1,13 +1,13 @@
 # :t-rex: GamepadZilla la la!
 
-> **GPZ** is a plug and play virtual and physical gamepad for html5 mobile games. (no script need)
+> A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. _No scripting required._
 
 ### :joystick: Features
 
  * gpz is fast. _(no DOM manpulation)_
  * gpz is easy. _(no Javascript needed, use only html5 attributes)_
  * gpz is pure. _(made with only typescript without dependencies)_
- * gpz hates the van's shaft.
+ * gpz hates the van's old-man. <!-- punkzilla reference -->
 
 ### :video_game: Preview
 

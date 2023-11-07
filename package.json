@@ -19,7 +19,7 @@
         "gpz",
         "bun"
     ],
-    "description": "gpz is a plug and play virtual and physical gamepad for html5 mobile games. (no script need)",
+    "description": "A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. No scripting required.",
     "scripts": {
         "test": "bun test .",
         "start": "bun run build --watch",
