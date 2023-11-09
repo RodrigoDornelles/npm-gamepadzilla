@@ -1,47 +1,20 @@
 import { ObjectGpz, Vector2d } from "./interface"
 import { nestFinger } from "./util"
 
+function virtualKeyboard(self: ObjectGpz) {
+    self.fakekeys.forEach((fakekey, index) => {
+        if (self.stateNew[index] && !self.stateOld[index]) {
+            window.dispatchEvent(new KeyboardEvent('keydown', fakekey))
+        }
+        if (!self.stateNew[index] && self.stateOld[index]) {
+            window.dispatchEvent(new KeyboardEvent('keyup', fakekey))
+        }
+    })
+}
+
 const emu = {
-    Joy(self: ObjectGpz) {
-        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
-        const stick = nestFinger(center, self.fingers)
-        const dirX = stick.pos.x - center.x
-        const dirY = stick.pos.y - center.y
-    
-        if (stick.dis > 10) {
-            if (dirX < 0) {
-                window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[1]))
-            }
-            else if (dirX > 0) {
-                window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[3]))
-            } else {
-                window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[1]))
-                window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[3]))
-            }
-            if (dirY < 0) {
-                window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[0]))
-            }
-            else if (dirY > 0) {
-                window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[2]))
-            }
-            else {
-                window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[2]))
-                window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[0]))
-            }
-        } else {
-            self.fakekeys.forEach(fakekey => {
-                window.dispatchEvent(new KeyboardEvent('keyup', fakekey))
-            })
-        }
-    },
-    Btn(self: ObjectGpz) {
-        if (self.stateNew[0] && !self.stateOld[0]) {
-            window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[0]))
-        }
-        if (!self.stateNew[0] && self.stateOld[0]) {
-            window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[0]))
-        }
-    }
+    Joy: virtualKeyboard,
+    Btn: virtualKeyboard
 }
 
 export { emu }

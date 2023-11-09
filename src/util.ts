@@ -1,6 +1,22 @@
 import { Keycode, Vector2d } from "./interface"
 import keycodesjson from "../keycodes.json"
 
+function interpolation(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
+    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+function clamp(num: number, min: number, max: number): number {
+    return Math.min(Math.max(num, min), max)
+}
+
+function normalize(num: number): number {
+    return interpolation(clamp(num, 0, 1), 0, 1, -1, 1)
+}
+
+function desnormalize(num: number): number {
+    return interpolation(clamp(num, -1, 1), -1, 1, 0, 1)
+}
+
 function nestFinger(center: Vector2d, fingers: Array<Vector2d>): {dis: number, pos: Vector2d} {
     if (fingers.length == 0) {
         return {dis: 0, pos: center}
@@ -35,4 +51,4 @@ function getKeyCodes(txt: string): Array<Keycode> {
     return keycodes
 }
 
-export {nestFinger, getKeyCodes}
+export {nestFinger, getKeyCodes, clamp, interpolation, normalize, desnormalize}

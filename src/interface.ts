@@ -31,6 +31,7 @@ interface ObjectGpz {
     stateOld: Array<boolean>
     fingers: Array<Vector2d>
     fakekeys: Array<Keycode>
+    axis2d: Vector2d | null
 }
 
 export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode}
