@@ -5,10 +5,12 @@ const core = {
     Joy(self: ObjectGpz) {
     },
     Btn(self: ObjectGpz) {
-        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
+        const bound = self.canvas.getBoundingClientRect()
+        const center: Vector2d = {x: bound.width / 2, y: bound.height / 2}
+        const resize = bound.width/self.canvas.width
         const btn = nestFinger(center, self.fingers)
         self.stateOld = [...self.stateNew]
-        self.stateNew[0] = btn.dis !== 0 && btn.dis < (50/3)
+        self.stateNew[0] = btn.dis !== 0 && btn.dis < (25 * resize)
     }
 }
 

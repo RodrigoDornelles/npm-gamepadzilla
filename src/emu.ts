@@ -36,11 +36,9 @@ const emu = {
     },
     Btn(self: ObjectGpz) {
         if (self.stateNew[0] && !self.stateOld[0]) {
-            console.log('down')
             window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[0]))
         }
         if (!self.stateNew[0] && self.stateOld[0]) {
-            console.log('up')
             window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[0]))
         }
     }
