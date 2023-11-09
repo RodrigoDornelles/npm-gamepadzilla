@@ -1,7 +1,6 @@
 import { ObjectGpz, Vector2d } from "./interface"
 import { nestFinger } from "./util"
 
-
 const emu = {
     Joy(self: ObjectGpz) {
         const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
@@ -36,12 +35,12 @@ const emu = {
         }
     },
     Btn(self: ObjectGpz) {
-        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
-        const btn = nestFinger(center, self.fingers)
-        if (btn.dis > (50/3)) {
+        if (self.stateNew[0] && !self.stateOld[0]) {
+            console.log('down')
             window.dispatchEvent(new KeyboardEvent('keydown', self.fakekeys[0]))
         }
-        else {
+        if (!self.stateNew[0] && self.stateOld[0]) {
+            console.log('up')
             window.dispatchEvent(new KeyboardEvent('keyup', self.fakekeys[0]))
         }
     }

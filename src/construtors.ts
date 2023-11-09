@@ -1,5 +1,6 @@
 import {ObjectGpz, ClassGpz} from './interface'
 import { emu } from './emu'
+import { core } from './core'
 import { draw } from './draw'
 import { getKeyCodes } from './util'
 
@@ -9,14 +10,20 @@ function construtors(): Array<ObjectGpz>  {
         Array.from(document.querySelectorAll(ClassGpz[gpztype]))
         .filter(el => el instanceof HTMLCanvasElement)
         .forEach(el => {
+            const canvas = el as HTMLCanvasElement
+            const context = canvas.getContext('2d') as CanvasRenderingContext2D
+            const keycodes = getKeyCodes(el.dataset.gpzBind)
             objects.push({
                 fingers: [],
                 emu: emu[gpztype],
+                core: core[gpztype],
                 draw: draw[gpztype],
                 type: ClassGpz[gpztype],
-                canvas: el as HTMLCanvasElement,
-                ctx2d: (el as HTMLCanvasElement).getContext('2d') as CanvasRenderingContext2D,
-                fakekeys: getKeyCodes(el.dataset.gpzBind),
+                canvas: canvas,
+                ctx2d: context,
+                fakekeys: keycodes,
+                stateNew: new Array(keycodes.length).fill(false),
+                stateOld: new Array(keycodes.length).fill(false),
             })
         })
     })

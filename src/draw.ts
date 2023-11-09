@@ -16,15 +16,7 @@ const draw = {
         const centerX: number = self.canvas.width / 2;
         const centerY: number = self.canvas.height / 2;
         const radius: number = 25;
-        let color: string = '#88888880'
-
-        self.fingers.forEach(finger => {
-            const distance = Math.sqrt((finger.x - centerX) ** 2 + (finger.y - centerY) ** 2)
-            if (distance < radius) {
-                color = 'red'
-            }
-        })
-
+        const color: string = self.stateNew[0]? 'red': '#88888880'
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
         drawCircle(self.ctx2d, color, centerX, centerY, radius)
     },
