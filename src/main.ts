@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     objects.forEach(obj => {
       function eventClean() {
         obj.fingers = []
+        obj.core(obj)
         obj.draw(obj)
         obj.emu(obj)
       }
       function eventMouse(event: MouseEvent) {
         obj.fingers = handleMouse(event, obj.canvas)
+        obj.core(obj)
         obj.draw(obj)
         obj.emu(obj)
       }
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         obj.canvas.removeEventListener('mouseleave', eventClean)
         obj.canvas.removeEventListener('mousemove', eventMouse)
         obj.fingers = handleTouch(event as TouchEvent, obj.canvas)
+        obj.core(obj)
         obj.draw(obj)
         obj.emu(obj)
       }

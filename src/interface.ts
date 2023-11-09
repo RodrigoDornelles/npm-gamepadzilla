@@ -23,11 +23,15 @@ interface Keycode {
 interface ObjectGpz {
     type: ClassGpz,
     emu(self: ObjectGpz): void,
+    core(self: ObjectGpz): void,
     draw(self: ObjectGpz): void,
     canvas: HTMLCanvasElement,
     ctx2d: CanvasRenderingContext2D,
+    stateNew: Array<boolean>
+    stateOld: Array<boolean>
     fingers: Array<Vector2d>
     fakekeys: Array<Keycode>
+    axis2d: Vector2d | null
 }
 
 export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode}

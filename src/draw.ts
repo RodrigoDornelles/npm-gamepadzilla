@@ -1,5 +1,5 @@
 import { ObjectGpz, Vector2d } from "./interface";
-import { nestFinger } from "./util";
+import { nestFinger, desnormalize } from "./util";
 
 function drawCircle(ctx: CanvasRenderingContext2D, fill: string, x: number, y: number, r: number) {
     ctx.beginPath()
@@ -16,24 +16,20 @@ const draw = {
         const centerX: number = self.canvas.width / 2;
         const centerY: number = self.canvas.height / 2;
         const radius: number = 25;
-        let color: string = '#88888880'
-
-        self.fingers.forEach(finger => {
-            const distance = Math.sqrt((finger.x - centerX) ** 2 + (finger.y - centerY) ** 2)
-            if (distance < radius) {
-                color = 'red'
-            }
-        })
-
+        const color: string = self.stateNew[0]? 'red': '#88888880'
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
         drawCircle(self.ctx2d, color, centerX, centerY, radius)
     },
     Joy(self: ObjectGpz) {
-        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
         const radius: number = 50
         const radius2: number = radius/3
-        const percentage: number = 1.5    
-        const stick = nestFinger(center, self.fingers)
+        const percentage: number = 1.5
+        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
+        const fakeFinger : Vector2d = {
+            x: desnormalize(self.axis2d!.x) * self.canvas.width,
+            y: desnormalize(self.axis2d!.y) * self.canvas.height,
+        }
+        const stick = nestFinger(center, [fakeFinger])
     
         if ((stick.dis / percentage) > (radius - radius2)) {
             const angle = Math.atan2(stick.pos.y - center.y, stick.pos.x - center.x)
