@@ -9,6 +9,7 @@ function drawCircle(ctx: CanvasRenderingContext2D, fill: string, x: number, y: n
     ctx.fillStyle = 'black';
     ctx.stroke();
     ctx.closePath();
+    ctx.fillStyle = fill
 }
 
 const draw = {
@@ -43,4 +44,4 @@ const draw = {
     }
 }
 
-export { draw }
+export { draw, drawCircle }
