@@ -1,10 +1,10 @@
 {
     "name": "gamepadzilla",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "RodrigoDornelles",
     "license": "AGPL-3.0-or-later",
     "homepage": "https://rodrigodornelles.github.io/npm-gamepadzilla/",
-    "repository": "https://rodrigodornelles/npm-gamepadzilla/",
+    "repository": "https://github.com/rodrigodornelles/npm-gamepadzilla/",
     "funding": "https://github.com/sponsors/RodrigoDornelles",
     "bugs": "https://github.com/RodrigoDornelles/3bc-lang/issues",
     "description": "A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. No scripting required.",
