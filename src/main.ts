@@ -1,12 +1,16 @@
 import { construtors } from "./construtors";
-import { handleTouch, handleMouse, handleGamepadAxis } from "./handlers";
-import { ClassGpz, GamepadFSM } from "./interface";
+import { handleTouch, handleMouse } from "./handlers";
+import { ObjectGpz } from "./interface";
+import { installEventGamepad } from "./event_gamepad"
 
 document.addEventListener('DOMContentLoaded', () => {
     const touchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel']
     const objects = construtors()
-    let gamepadState: GamepadFSM = GamepadFSM.Offline
-    
+
+    installEventGamepad(objects, (self: ObjectGpz) => {
+      self.draw(self)
+      self.emu(self)
+    })
     
     objects.forEach(obj => {
       function eventClean() {
@@ -29,26 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         obj.draw(obj)
         obj.emu(obj)
       }
-      function eventGamepad() {
-        const axis = handleGamepadAxis(obj.canvas)
-        if (axis.length > 0) {
-          gamepadState = GamepadFSM.Online
-          obj.fingers = axis
-          obj.draw(obj)
-          obj.emu(obj)
-        }
-        if (axis.length === 0 && gamepadState == GamepadFSM.Online) {
-          gamepadState = GamepadFSM.Cleanup
-          obj.fingers = []
-          obj.draw(obj)
-          obj.emu(obj)
-        }
-      }
-
-      if (obj.type == ClassGpz.Joy) {
-        setInterval(eventGamepad, 1000 / 60)
-      }
-
+      
       obj.canvas.addEventListener('mouseleave', eventClean)
       obj.canvas.addEventListener('mousemove', eventMouse)      
       touchEvents.forEach(eventName => obj.canvas.addEventListener(eventName, (event) => eventTouch(event as TouchEvent)))
