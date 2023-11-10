@@ -23,8 +23,11 @@
     ],
     "scripts": {
         "test": "bun test .",
-        "start": "bun run build --watch",
+        "test:watch": "bun run test --watch",
+        "test:coverage": "bun run test --coverage",
+        "start": "bun run build:example && run build:watch",
         "build": "bun build --minify --outdir dist --target browser --entry-naming 'gamepadzilla.js' src/main.ts",
+        "build:watch": "bun run build --watch",
         "build:example": "npm run build && cp examples/* dist"
     },
     "dependencies": {

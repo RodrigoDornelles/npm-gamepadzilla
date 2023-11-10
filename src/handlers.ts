@@ -1,13 +1,13 @@
 import { Vector2d } from "./interface";
 
-function handleMouse(event: MouseEvent, element: HTMLElement): Array<Vector2d> {
+function handleMouse(event: MouseEvent, element: HTMLElement) {
     const rect = element.getBoundingClientRect()
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
-    return [{x, y}]
+    return [{x, y}] as Array<Vector2d>
 }
 
-function handleTouch(event: TouchEvent, element: HTMLElement): Array<Vector2d> {
+function handleTouch(event: TouchEvent, element: HTMLElement) {
     const fingers: Array<Vector2d> = []
     const rect = element.getBoundingClientRect()
 
@@ -20,7 +20,7 @@ function handleTouch(event: TouchEvent, element: HTMLElement): Array<Vector2d> {
     return fingers
 }
 
-function handleGamepadAxis(gamepad: Gamepad): Array<Vector2d> {
+function handleGamepadAxis(gamepad: Gamepad) {
     const axis: Array<Vector2d> = []
 
     const lastOddAxisIndex = gamepad.axes.length - 1;
@@ -33,8 +33,8 @@ function handleGamepadAxis(gamepad: Gamepad): Array<Vector2d> {
     return axis
 }
 
-function handleGamepadButtons(gamepad: Gamepad): Array<Number> {
-    return gamepad.buttons.filter(is => is.pressed).map((_, button) => button)
+function handleGamepadButtons(gamepad: Gamepad) {
+    return gamepad.buttons.map((is, button) => is.pressed && button).filter(id => id !== false) as Array<Number>
 }
 
 export {handleMouse, handleTouch, handleGamepadAxis, handleGamepadButtons}

@@ -1,16 +1,16 @@
 import { ClassGpz, ObjectGpz, GamepadFSM, Vector2d } from "./interface";
 import { handleGamepadAxis, handleGamepadButtons } from "./handlers";
 
+function getOnlineGamePads(device: Navigator) {
+  return (device.getGamepads?.().filter(is => is?.connected) ?? []) as Array<Gamepad> 
+}
+
 function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
 {
   let gamepadState: GamepadFSM = GamepadFSM.Offline
 
   const joypads = pads.filter(self => self.type == ClassGpz.Joy)
   const buttonpads = pads.filter(self => self.type == ClassGpz.Btn)
-
-  function getOnlineGamePads() {
-    return (navigator?.getGamepads().filter(g => g?.connected) ?? []) as Array<Gamepad> 
-  }
 
   function processAxis(axis: Array<Vector2d>) {
     if (axis.length > 0) {
@@ -30,7 +30,7 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
   }
 
   function gamepadEvent() {
-    const gamepads = getOnlineGamePads()
+    const gamepads = getOnlineGamePads(navigator)
     gamepads.forEach(gamepad => {
       const axis = handleGamepadAxis(gamepad)
       const buttons = handleGamepadButtons(gamepad)
@@ -39,7 +39,7 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
   }
 
   function toggleEvent() {
-    const count = getOnlineGamePads().length
+    const count = getOnlineGamePads(navigator).length
     if (count > 0) {
       setInterval(gamepadEvent, 1000 / 60)
     }
@@ -48,4 +48,4 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
   window.addEventListener("gamepadconnected", toggleEvent)
 }
 
-export { installEventGamepad }
+export { installEventGamepad, getOnlineGamePads }
