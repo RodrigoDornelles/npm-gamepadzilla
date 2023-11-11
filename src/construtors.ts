@@ -1,8 +1,9 @@
-import {ObjectGpz, ClassGpz} from './interface'
+import {ObjectGpz, ClassGpz, Keycode} from './interface'
 import { emu } from './emu'
 import { core } from './core'
 import { draw } from './draw'
 import { getKeyCodes } from './util'
+import keycodesjson from "../keycodes.json"
 
 function construtors(): Array<ObjectGpz>  {
     const objects = [] as Array<ObjectGpz>
@@ -14,7 +15,7 @@ function construtors(): Array<ObjectGpz>  {
             const axis = gpztype == 'Joy' ? {x: 0, y: 0}: null
             const canvas = el as HTMLCanvasElement
             const context = canvas.getContext('2d') as CanvasRenderingContext2D
-            const keycodes = getKeyCodes(el.dataset.gpzBind)
+            const keycodes = getKeyCodes(keycodesjson, el.dataset.gpzBind)
             objects.push({
                 fingers: [],
                 emu: emu[gpztype],

@@ -4,6 +4,18 @@ enum GamepadFSM {
     Cleanup = 2
 }
 
+enum TouchEvents {
+    Start = 'touchstart',
+    Move = 'touchmove',
+    End = 'touchend',
+    Cancel = 'touchcancel'
+}
+
+enum MouseEvents {
+    Move = 'mousemove',
+    Leave = 'mouseleave'
+}
+
 interface Vector2d {
     x: number,
     y: number
@@ -20,6 +32,13 @@ interface Keycode {
     keyCode: number
 }
 
+type KeycodeMap = {
+    [key: string]: {
+        key: string,
+        keyCode: number
+    }
+}
+
 interface ObjectGpz {
     type: ClassGpz,
     emu(self: ObjectGpz): void,
@@ -34,4 +53,4 @@ interface ObjectGpz {
     axis2d: Vector2d | null
 }
 
-export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode}
+export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode, KeycodeMap, TouchEvents, MouseEvents}

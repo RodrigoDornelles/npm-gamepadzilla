@@ -1,5 +1,4 @@
-import { Keycode, Vector2d } from "./interface"
-import keycodesjson from "../keycodes.json"
+import { Keycode, KeycodeMap, Vector2d } from "./interface"
 
 function interpolation(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
     return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -36,15 +35,15 @@ function nestFinger(center: Vector2d, fingers: Array<Vector2d>): {dis: number, p
     return {dis: shortestDistance, pos: closestFinger}
 }
 
-function getKeyCodes(txt: string): Array<Keycode> {
-    const tokens = txt.trim().split(' ').filter(token => token in keycodesjson)
+function getKeyCodes(from: KeycodeMap, txt: string) {
+    const tokens = txt.trim().split(' ').filter(token => token in from)
     const keycodes: Array<Keycode> = []
 
     tokens.forEach(token => {
         keycodes.push({
             code: token,
-            key: keycodesjson[token].key,
-            keyCode: keycodesjson[token].keyCode,
+            key: from[token].key,
+            keyCode: from[token].keyCode,
         })
     })
 

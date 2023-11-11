@@ -1,20 +1,23 @@
-import { ObjectGpz, Vector2d } from "./interface"
-import { nestFinger } from "./util"
+import { ObjectGpz } from "./interface"
 
-function virtualKeyboard(self: ObjectGpz) {
+interface Keyboard extends Window {
+    KeyboardEvent: new (type: string, eventInitDict?: KeyboardEventInit | undefined) => KeyboardEvent
+}
+
+function virtualKeyboard(device: Keyboard, self: ObjectGpz) {
     self.fakekeys.forEach((fakekey, index) => {
         if (self.stateNew[index] && !self.stateOld[index]) {
-            window.dispatchEvent(new KeyboardEvent('keydown', fakekey))
+            device.dispatchEvent(new device.KeyboardEvent('keydown', fakekey))
         }
         if (!self.stateNew[index] && self.stateOld[index]) {
-            window.dispatchEvent(new KeyboardEvent('keyup', fakekey))
+            device.dispatchEvent(new device.KeyboardEvent('keyup', fakekey))
         }
     })
 }
 
 const emu = {
-    Joy: virtualKeyboard,
-    Btn: virtualKeyboard
+    Joy: (self: ObjectGpz) => virtualKeyboard(window, self),
+    Btn: (self: ObjectGpz) => virtualKeyboard(window, self)
 }
 
-export { emu }
+export { emu, virtualKeyboard }
