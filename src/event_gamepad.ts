@@ -5,7 +5,14 @@ function getOnlineGamePads(device: Navigator) {
   return (device.getGamepads?.().filter(is => is?.connected) ?? []) as Array<Gamepad> 
 }
 
-function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
+function toggleEvent(device: Window, func: () => void) {
+  const count = getOnlineGamePads(device.navigator).length
+  if (count > 0) {
+    device.setInterval(func, 1000 / 60)
+  }
+}
+
+function installEventGamepad(device: Window, pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
 {
   let gamepadState: GamepadFSM = GamepadFSM.Offline
 
@@ -52,14 +59,12 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
     })
   }
 
-  function toggleEvent() {
-    const count = getOnlineGamePads(navigator).length
-    if (count > 0) {
-      setInterval(gamepadEvent, 1000 / 60)
-    }
+  function toggleEventGamepad(){
+    toggleEvent(device, gamepadEvent)
+    window.removeEventListener("gamepadconnected", toggleEventGamepad)
   }
 
-  window.addEventListener("gamepadconnected", toggleEvent)
+  window.addEventListener("gamepadconnected", toggleEventGamepad)
 }
 
-export { installEventGamepad, getOnlineGamePads }
+export { installEventGamepad, getOnlineGamePads, toggleEvent }

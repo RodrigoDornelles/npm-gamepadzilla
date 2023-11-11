@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       self.draw(self)
       self.emu(self)
     })
-    installEventGamepad(objects, (self: ObjectGpz) => {
+    installEventGamepad(window, objects, (self: ObjectGpz) => {
       self.draw(self)
       self.emu(self)
     })
