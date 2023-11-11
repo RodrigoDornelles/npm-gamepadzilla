@@ -12,6 +12,19 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
   const joypads = pads.filter(self => self.type == ClassGpz.Joy)
   const buttonpads = pads.filter(self => self.type == ClassGpz.Btn)
 
+  function processButtons(buttons: Array<number>) {
+    buttonpads.forEach(self => {
+      if (!self.stateNew[0] && buttons.length > 0) {
+        self.stateNew[0] = true;
+        process(self)
+      }
+      if (self.stateNew[0] && buttons.length == 0) {
+          self.stateNew[0] = false
+          process(self)
+      }
+    })
+  }
+
   function processAxis(axis: Array<Vector2d>) {
     if (axis.length > 0) {
       gamepadState = GamepadFSM.Online
@@ -32,8 +45,9 @@ function installEventGamepad(pads: Array<ObjectGpz>, process: (self: ObjectGpz) 
   function gamepadEvent() {
     const gamepads = getOnlineGamePads(navigator)
     gamepads.forEach(gamepad => {
-      const axis = handleGamepadAxis(gamepad)
       const buttons = handleGamepadButtons(gamepad)
+      const axis = handleGamepadAxis(gamepad)
+      processButtons(buttons)
       processAxis(axis)
     })
   }
