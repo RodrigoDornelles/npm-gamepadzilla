@@ -1,4 +1,4 @@
-import { ClassGpz, ObjectGpz, GamepadFSM, Vector2d } from "./interface";
+import { ClassGpz, ObjectGpz, GamepadFSM, Vector2d, EventGpz } from "./interface";
 import { handleGamepadAxis, handleGamepadButtons } from "./handlers";
 
 function getOnlineGamePads(device: Navigator) {
@@ -22,11 +22,13 @@ function installEventGamepad(device: Window, pads: Array<ObjectGpz>, process: (s
   function processButtons(buttons: Array<number>) {
     buttonpads.forEach(self => {
       if (!self.stateNew[0] && buttons.length > 0) {
-        self.stateNew[0] = true;
+        self.from = EventGpz.Gamepad
+        self.buttons = [true]
         process(self)
       }
       if (self.stateNew[0] && buttons.length == 0) {
-          self.stateNew[0] = false
+          self.from = EventGpz.Gamepad
+          self.buttons = [false]
           process(self)
       }
     })
@@ -36,6 +38,7 @@ function installEventGamepad(device: Window, pads: Array<ObjectGpz>, process: (s
     if (axis.length > 0) {
       gamepadState = GamepadFSM.Online
       joypads.forEach(self => {
+        self.from = EventGpz.Gamepad
         self.axis2d = axis[0]
         process(self)
       })
@@ -43,6 +46,7 @@ function installEventGamepad(device: Window, pads: Array<ObjectGpz>, process: (s
     if (axis.length === 0 && gamepadState == GamepadFSM.Online) {
       gamepadState = GamepadFSM.Cleanup
       joypads.forEach(self => {
+        self.from = EventGpz.Gamepad
         self.axis2d = {x: 0, y: 0}
         process(self)
       })

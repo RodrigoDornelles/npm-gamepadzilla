@@ -3,25 +3,19 @@ import { ObjectGpz } from "./interface";
 import { installEventGamepad } from "./event_gamepad"
 import { InstallEventMouse } from "./event_mouse";
 import { InstallEventTouch } from "./event_touch";
+import { InstallEventHtml } from "./event_html";
 
 document.addEventListener('DOMContentLoaded', () => {
     const objects = construtors()
 
-    InstallEventTouch(window, objects, (self: ObjectGpz) => {
+    function update(self: ObjectGpz) {
       self.core(self)
       self.draw(self)
       self.emu(self)
-    })
-    InstallEventMouse(window, objects, (self: ObjectGpz) => {
-      self.core(self)
-      self.draw(self)
-      self.emu(self)
-    })
-    installEventGamepad(window, objects, (self: ObjectGpz) => {
-      self.draw(self)
-      self.emu(self)
-    })
-    objects.forEach(obj => {
-      obj.draw(obj)
-    })
+    }
+
+    InstallEventHtml(window, objects, update)
+    InstallEventTouch(window, objects, update)
+    InstallEventMouse(window, objects, update)
+    installEventGamepad(window, objects, update)
 })

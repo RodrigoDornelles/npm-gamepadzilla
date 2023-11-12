@@ -1,4 +1,4 @@
-import {ObjectGpz, ClassGpz, Keycode} from './interface'
+import {ObjectGpz, ClassGpz, Keycode, EventGpz} from './interface'
 import { emu } from './emu'
 import { core } from './core'
 import { draw } from './draw'
@@ -22,6 +22,7 @@ function construtors(): Array<ObjectGpz>  {
                 core: core[gpztype],
                 draw: draw[gpztype],
                 type: ClassGpz[gpztype],
+                from: EventGpz.Startup,
                 canvas: canvas,
                 ctx2d: context,
                 axis2d: axis,

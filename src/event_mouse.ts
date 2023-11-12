@@ -1,16 +1,18 @@
-import { ObjectGpz } from "./interface";
+import { EventGpz, ObjectGpz } from "./interface";
 import { TouchEvents, MouseEvents } from "./interface";
 import { handleMouse } from "./handlers";
 
 function InstallEventMouse(device: Window, pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
 {
     pads.forEach(self => {
-        function eventClean(event: MouseEvent) {   
+        function eventClean(event: MouseEvent) {
+            self.from = EventGpz.Touch
             self.fingers = []
             process(self)
         }
 
         function eventMove(event: MouseEvent) {
+            self.from = EventGpz.Touch
             self.fingers = [...handleMouse(event, self.canvas)]
             process(self)
         }
