@@ -1,46 +1,54 @@
-enum GamepadFSM {
+export enum EventGpz {
+    Startup,
+    Touch,
+    Gamepad,
+    Keyboard
+}
+
+export enum GamepadFSM {
     Offline = 0,
     Online = 1,
     Cleanup = 2
 }
 
-enum TouchEvents {
+export enum TouchEvents {
     Start = 'touchstart',
     Move = 'touchmove',
     End = 'touchend',
     Cancel = 'touchcancel'
 }
 
-enum MouseEvents {
+export enum MouseEvents {
     Move = 'mousemove',
     Leave = 'mouseleave'
 }
 
-interface Vector2d {
+export interface Vector2d {
     x: number,
     y: number
 }
 
-enum ClassGpz {
+export enum ClassGpz {
     Joy = '.gpz-joy',
     Btn = '.gpz-btn',
 }
 
-interface Keycode {
+export interface Keycode {
     key: string,
     code: string,
     keyCode: number
 }
 
-type KeycodeMap = {
+export type KeycodeMap = {
     [key: string]: {
         key: string,
         keyCode: number
     }
 }
 
-interface ObjectGpz {
+export interface ObjectGpz {
     type: ClassGpz,
+    from: EventGpz,
     emu(self: ObjectGpz): void,
     core(self: ObjectGpz): void,
     draw(self: ObjectGpz): void,
@@ -51,6 +59,5 @@ interface ObjectGpz {
     fingers: Array<Vector2d>
     fakekeys: Array<Keycode>
     axis2d: Vector2d | null
+    buttons: Array<boolean> | null
 }
-
-export  {ClassGpz, ObjectGpz, Vector2d, GamepadFSM, Keycode, KeycodeMap, TouchEvents, MouseEvents}
