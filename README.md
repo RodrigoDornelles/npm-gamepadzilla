@@ -2,6 +2,9 @@
 
 # :t-rex: GamepadZilla la la!
 
+[![npm](https://img.shields.io/npm/dy/gamepadzilla?logo=npm&logoColor=fff&label=npm%20downloads)](https://www.npmjs.com/package/gamepadzilla)
+[![cdn](https://img.shields.io/jsdelivr/npm/hy/gamepadzilla?logo=jsdelivr&logoColor=fff&label=cdn%20downloads)](https://www.jsdelivr.com/package/npm/gamepadzilla)
+
 </div>
 
 > A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. _No scripting required._
