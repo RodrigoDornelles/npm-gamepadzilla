@@ -15,10 +15,10 @@ const core = {
             self.axis2d = {x: dirX, y: dirY}
         }
         if (self.axis2d) {
-            self.stateNew[0] = self.axis2d.x < -deadZone
-            self.stateNew[1] = self.axis2d.y < -deadZone
-            self.stateNew[2] = self.axis2d.x > deadZone
-            self.stateNew[3] = self.axis2d.y > deadZone
+            self.stateNew[0] = self.axis2d.y < -deadZone
+            self.stateNew[1] = self.axis2d.x < -deadZone
+            self.stateNew[2] = self.axis2d.y > deadZone
+            self.stateNew[3] = self.axis2d.x > deadZone
         }
     },
     Btn(self: ObjectGpz) {

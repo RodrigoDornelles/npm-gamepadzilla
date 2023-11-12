@@ -38,8 +38,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Upload binaries to github
-        uses: softprops/action-gh-release@v1
-        with:
-          files: dist/gamepadzilla.js
