@@ -7,8 +7,8 @@ const core = {
         const bound = self.canvas.getBoundingClientRect()
         const center: Vector2d = {x: bound.width / 2, y: bound.height / 2}
         const stick = nestFinger(center, self.fingers)
-        const dirX = self.fingers.length? normalize((stick.pos.x - bound.left)/bound.width): 0
-        const dirY = self.fingers.length? normalize((stick.pos.y - bound.top)/bound.height): 0
+        const dirX = self.fingers.length? normalize(stick.pos.x/bound.width): 0
+        const dirY = self.fingers.length? normalize(stick.pos.y/bound.height): 0
         const deadZone = 0.18
         self.stateOld = [...self.stateNew]
         if (self.axis2d) {
