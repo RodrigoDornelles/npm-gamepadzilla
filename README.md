@@ -51,7 +51,7 @@
 
 | html5 attribute | html5 class | description |
 | :-------------: | :---------: |:----------- |
-| `data-gpz-bind` | `gpz-joy`<br/>`gpz-btn`   | keyboard to emulate _(follows anti-clockwise button pattern such as <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>)_ |
+| `data-gpz-bind` | `gpz-joy`<br/>`gpz-btn`   | keyboard to emulate<br/>_(follows anti-clockwise button pattern like:<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>)_ |
 
 <!--
 
