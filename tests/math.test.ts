@@ -2,14 +2,14 @@ import { expect, test } from "bun:test";
 import { interpolation, clamp, normalize, desnormalize } from '../src/util' 
 
 test('should interpolate correctly', () => {
-    expect(interpolation(0.5, 0, 1, 0, 10)).toBe(5)
-    expect(interpolation(75, 0, 100, 0, 10)).toBe(7.5)
+    expect(interpolation(0.5, {min: 0, max: 1}, {min: 0, max: 10})).toBe(5)
+    expect(interpolation(75, {min: 0, max: 100}, {min: 0, max: 10})).toBe(7.5)
 })
 
 test('should clamp values correctly', () => {
-    expect(clamp(5, 0, 10)).toBe(5)
-    expect(clamp(-5, 0, 10)).toBe(0)
-    expect(clamp(15, 0, 10)).toBe(10)
+    expect(clamp(5, {min: 0, max: 10})).toBe(5)
+    expect(clamp(-5, {min: 0, max: 10})).toBe(0)
+    expect(clamp(15, {min: 0, max: 10})).toBe(10)
 })
 
 test('should normalize values correctly', () => {

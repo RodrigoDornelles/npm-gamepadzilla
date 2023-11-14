@@ -17,6 +17,7 @@ function construtors(): Array<ObjectGpz>  {
             const context = canvas.getContext('2d') as CanvasRenderingContext2D
             const keycodes = getKeyCodes(keycodesjson, el.dataset.gpzBind)
             objects.push({
+                buttons: null,
                 fingers: [],
                 emu: emu[gpztype],
                 core: core[gpztype],

@@ -13,6 +13,15 @@
 | :------------------- | :------------------- |
 [![virtual gamepad](https://raw.githubusercontent.com/RodrigoDornelles/RodrigoDornelles/master/media/gamepadzilla-1-0-1.gif)](https://rodrigodornelles.github.io/npm-gamepadzilla) | gpz is fast. _(no DOM manpulation)_<br/><br/>gpz is easy. _(no Javascript needed, use only html5 attributes)_<br/><br/>gpz is pure. _(made with only typescript without dependencies)_<br/><br/>gpz hates the van's old-man! |
 
+
+### showcase ###
+
+post your open-source game using gamepadzilla! 
+
+| game | stack | source |
+| :--- | :---- | :----: | 
+| [Coco Battle Royale 2](https://psywave-games.github.io/coco-battle-royale-2) | C, Assembly 6502, WebAssembly, Html, gampadzila.js | [:octocat:repo](https://github.com/psywave-games/coco-battle-royale-2) | 
+
 ## How to use
 
  * import library with [npm](https://www.npmjs.com/package/gamepadzilla) or [cdn](https://www.jsdelivr.com/package/npm/gamepadzilla). :minibus:
@@ -35,6 +44,32 @@
         </canvas>
     </body>
 </html>
+```
+
+## How to build
+
+if you intend to contribute, let's rock! :guitar:
+
+### bun :rice: ###
+
+```bash
+bun run build
+```
+
+### nodejs :rage1: ###
+
+```bash
+npm install
+npm run build
+```
+
+### container :whale2: ###
+
+```bash
+podman run --rm -v $(pwd):/app -w /app  -it oven/bun bun run build
+```
+```bash
+docker run --rm -v $(pwd):/app -w /app  -it ove/bun bun run build
 ```
 
 ## Cheatsheet
@@ -91,3 +126,6 @@ You can customize the canvas element by combining visibility at and a condition.
 | `on-first-touch`   | when touched the screen (only first time) |
 
 -->
+
+------------------------------------------------------------------------------------------------------------------
+This project is licensed under **GNU Affero General Public License 3.0**, please read the [LICENSE](LICENSE) file.
