@@ -126,3 +126,6 @@ You can customize the canvas element by combining visibility at and a condition.
 | `on-first-touch`   | when touched the screen (only first time) |
 
 -->
+
+------------------------------------------------------------------------------------------------------------------
+This project is licensed under **GNU Affero General Public License 3.0**, please read the [LICENSE](LICENSE) file.
