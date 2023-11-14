@@ -3,7 +3,7 @@ import { draw, drawCircle } from "../src/draw"
 
 const drawJoyMock = (o: any) => draw['Joy'](o)
 const drawBtnMock = (o: any) => draw['Btn'](o)
-const drawCircleMock = (c: any, f: any, x: any, y: any, z: any) => drawCircle(c, f, x, y, z)
+const drawCircleMock = (a: any, b: any, c: any, d: any, e: any) => drawCircle(a, b, e, {x: c, y: d})
 
 test("drawCircle should draw a filled circle with the correct attributes", () => {
     const ctxMock = {

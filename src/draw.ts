@@ -1,9 +1,9 @@
 import { ObjectGpz, Vector2d } from "./interface";
 import { nestFinger, desnormalize } from "./util";
 
-function drawCircle(ctx: CanvasRenderingContext2D, fill: string, x: number, y: number, r: number) {
+export function drawCircle(ctx: CanvasRenderingContext2D, fill: string, r: number, pos: Vector2d) {
     ctx.beginPath()
-    ctx.arc(x, y, r, 0, 2 * Math.PI)
+    ctx.arc(pos.x, pos.y, r, 0, 2 * Math.PI)
     ctx.fillStyle = fill
     ctx.fill()
     ctx.fillStyle = 'black';
@@ -19,7 +19,7 @@ const draw = {
         const radius: number = 25;
         const color: string = self.stateNew[0]? 'red': '#88888880'
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
-        drawCircle(self.ctx2d, color, centerX, centerY, radius)
+        drawCircle(self.ctx2d, color, radius, {x: centerX, y: centerY})
     },
     Joy(self: ObjectGpz) {
         const radius: number = 50
@@ -39,9 +39,9 @@ const draw = {
         }
     
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
-        drawCircle(self.ctx2d, '#aaaaaa80', center.x, center.y, radius)
-        drawCircle(self.ctx2d, '#88888880', stick.pos.x, stick.pos.y, radius2)
+        drawCircle(self.ctx2d, '#aaaaaa80', radius, {x: center.x, y: center.y})
+        drawCircle(self.ctx2d, '#88888880', radius2, {x: stick.pos.x, y: stick.pos.y})
     }
 }
 
-export { draw, drawCircle }
+export { draw }
