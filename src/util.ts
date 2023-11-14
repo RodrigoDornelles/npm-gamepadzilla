@@ -1,19 +1,19 @@
-import { Keycode, KeycodeMap, Vector2d } from "./interface"
+import { Keycode, KeycodeMap, Vector2d, Range } from "./interface"
 
-function interpolation(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
-    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+function interpolation(num: number, input: Range, output: Range): number {
+    return (num - input.min) * (output.max - output.min) / (input.max - input.min) + output.min;
 }
 
-function clamp(num: number, min: number, max: number): number {
-    return Math.min(Math.max(num, min), max)
+function clamp(num: number, range: Range): number {
+    return Math.min(Math.max(num, range.min), range.max)
 }
 
 function normalize(num: number): number {
-    return interpolation(clamp(num, 0, 1), 0, 1, -1, 1)
+    return interpolation(clamp(num, {min: 0, max: 1}), {min: 0, max: 1}, {min: -1, max: 1})
 }
 
 function desnormalize(num: number): number {
-    return interpolation(clamp(num, -1, 1), -1, 1, 0, 1)
+    return interpolation(clamp(num, {min: -1, max: 1}), {min: -1, max: 1}, {min: 0, max: 1})
 }
 
 function nestFinger(center: Vector2d, fingers: Array<Vector2d>): {dis: number, pos: Vector2d} {
