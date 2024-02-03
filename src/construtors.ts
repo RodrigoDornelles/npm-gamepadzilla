@@ -30,6 +30,7 @@ function construtors(): Array<ObjectGpz>  {
                 fakekeys: keycodes,
                 stateNew: new Array(keycodes.length).fill(false),
                 stateOld: new Array(keycodes.length).fill(false),
+                chain: []
             })
         })
     })

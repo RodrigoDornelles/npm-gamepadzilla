@@ -65,4 +65,5 @@ export interface ObjectGpz {
     fakekeys: Array<Keycode>
     axis2d: Vector2d | null
     buttons: Array<boolean> | null
+    chain: Array<(self: ObjectGpz) => void>
 }
