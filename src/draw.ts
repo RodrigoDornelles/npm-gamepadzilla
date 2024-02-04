@@ -51,8 +51,8 @@ const draw = {
         const sizeArr = tokens(self.canvas.dataset.gpzSize, '16', 2).map(n => Number(n))
         const size2D = {x: sizeArr[0], y: sizeArr[1]}
         const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
-        const color1: Array<string> = tokens(self.canvas.dataset.color, '#aaaaaa80', 4)
-        const color2: Array<string> = tokens(self.canvas.dataset.color, '#44444480', 4)
+        const color1: Array<string> = tokens(self.canvas.dataset.gpzColor, '#aaaaaa80', 4)
+        const color2: Array<string> = tokens(self.canvas.dataset.gpzColorAction, '#44444480', 4)
         const colors: Array<string> = self.stateNew.map((state, index) => state? color2[index]: color1[index])
         const pads: Array<Array<Vector2d>> = [
             polyTransform(geometry['dpad'], {x: center.x, y: center.y - offset}, size2D, angleInRadians(0)), 
