@@ -27,7 +27,7 @@ test("drawCircle should draw a filled circle with the correct attributes", () =>
 
 test("draw.Btn should draw a red circle when stateNew is true", () => {
     const gpz = {
-        canvas: { width: 100, height: 100 },
+        canvas: { width: 100, height: 100, dataset: {} },
         stateNew: [true],
         ctx2d: {
             fillStyle: "",
@@ -49,7 +49,7 @@ test("draw.Btn should draw a red circle when stateNew is true", () => {
 
 test("draw.Btn should draw a gray circle when stateNew is false", () => {
     const gpz = {
-        canvas: { width: 100, height: 100 },
+        canvas: { width: 100, height: 100, dataset: {} },
         stateNew: [false],
         ctx2d: {
             fillStyle: "",
