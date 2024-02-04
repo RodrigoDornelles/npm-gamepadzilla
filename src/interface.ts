@@ -36,6 +36,7 @@ export interface Vector2d {
 export enum ClassGpz {
     Joy = '.gpz-joy',
     Btn = '.gpz-btn',
+    Dpad = '.gpz-dpad',
 }
 
 export interface Keycode {

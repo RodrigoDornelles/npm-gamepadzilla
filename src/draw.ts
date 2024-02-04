@@ -1,5 +1,7 @@
 import { ObjectGpz, Vector2d } from "./interface";
-import { nestFinger, desnormalize } from "./util";
+import { nestFinger, desnormalize, tokens } from "./util";
+import { angleInRadians, polyTransform } from "./math"
+import geometry from "../geometry.json"
 
 export function drawCircle(ctx: CanvasRenderingContext2D, fill: string, r: number, pos: Vector2d) {
     ctx.beginPath()
@@ -43,6 +45,34 @@ const draw = {
         self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
         drawCircle(self.ctx2d, '#aaaaaa80', radius, {x: center.x, y: center.y})
         drawCircle(self.ctx2d, '#88888880', radius2, {x: stick.pos.x, y: stick.pos.y})
+    },
+    Dpad(self: ObjectGpz) {
+        const offset = Number(self.canvas.dataset.gpzOffset ?? 6)
+        const sizeArr = tokens(self.canvas.dataset.gpzSize, '16', 2).map(n => Number(n))
+        const size2D = {x: sizeArr[0], y: sizeArr[1]}
+        const center: Vector2d = {x: self.canvas.width / 2, y: self.canvas.height / 2}
+        const color1: Array<string> = tokens(self.canvas.dataset.color, '#aaaaaa80', 4)
+        const color2: Array<string> = tokens(self.canvas.dataset.color, '#44444480', 4)
+        const colors: Array<string> = self.stateNew.map((state, index) => state? color2[index]: color1[index])
+        const pads: Array<Array<Vector2d>> = [
+            polyTransform(geometry['dpad'], {x: center.x, y: center.y - offset}, size2D, angleInRadians(0)), 
+            polyTransform(geometry['dpad'], {x: center.x - offset, y: center.y}, size2D, angleInRadians(270)),  
+            polyTransform(geometry['dpad'], {x: center.x, y: center.y + offset}, size2D, angleInRadians(180)),  
+            polyTransform(geometry['dpad'], {x: center.x + offset, y: center.y}, size2D, angleInRadians(90))  
+        ]
+        self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
+        pads.forEach((pad, index) => {
+            self.ctx2d.beginPath();
+            self.ctx2d.moveTo(pad[0].x, pad[0].y)
+            pad.forEach(poly => {
+                self.ctx2d.lineTo(poly.x, poly.y)
+            })
+            self.ctx2d.fillStyle = colors[index]
+            self.ctx2d.fill()
+            self.ctx2d.fillStyle = 'black'
+            self.ctx2d.stroke()
+            self.ctx2d.closePath()
+        })
     }
 }
 

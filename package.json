@@ -27,7 +27,7 @@
         "test:coverage": "bun run test --coverage",
         "start": "bun run build:example && bun run build:watch",
         "build": "bun build --minify --outdir dist --target browser --entry-naming 'gamepadzilla.js' src/main.ts",
-        "build:watch": "bun run build --watch",
+        "build:watch": "bun build --watch --outdir dist --target browser --entry-naming 'gamepadzilla.js' src/main.ts",
         "build:example": "npm run build && cp examples/* dist"
     },
     "dependencies": {
