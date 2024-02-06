@@ -1,6 +1,13 @@
 code[class*=language-],
 pre[class*=language-] {
-    display: block;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-width: 300px;
+    min-height: 75px;
+    display: blockgit status;
     color: #ccc;
     background: 0 0;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
