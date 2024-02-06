@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    touch-action: none;
+    background-color: #282c34;
+}
+
+main {
+    display: flex;
+    flex-direction: column
+}
+
+section {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+code {
+    text-align: left;
+    min-width: 50%;
+    display: block;
+    color: #61dafb;
+    background-color: #282c34;
+    white-space: pre-wrap 
+}
+
+canvas {
+    image-rendering: pixelated;
+}
+section:nth-child(1){
+    display: block;
+}
+section:nth-child(odd) {
+    background-color: #61dafb;
+}
+
+section:nth-child(even) {
+    background-color: #282c34;
+}

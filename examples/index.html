@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Demo</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='gamepadzilla.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GamepadZilla - Demo</title>
+    <link rel="stylesheet" href="styles.css"></link>
+    <script src="gamepadzilla.js"></script>
 </head>
-<body style="touch-action: none">
-    <canvas class="gpz-joy" data-gpz-bind="ArrowUp ArrowLeft ArrowDown ArrowRight"></canvas>
-    <canvas class="gpz-btn" data-gpz-color="yellow" data-gpz-bind="KeyF"></canvas>
+<body>
+    <main>
+        <section>
+            <h1>GamepadZilla - Demo</h1>
+            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla">https://github.com/RodrigoDornelles/npm-gamepadzilla</a>
+        </section>
+        <section>
+            <code>
+&lt;canvas class=&quot;gpz-dpad&quot;
+    data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
+&lt;/canvas&gt;
+            </code>
+            <canvas class="gpz-dpad" data-gpz-bind=""></canvas>
+        </section>
+        <section>
+            <code>
+&lt;canvas class=&quot;gpz-joy&quot;
+    data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
+&lt;/canvas&gt;
+            </code>
+            <canvas class="gpz-joy" data-gpz-bind=""></canvas>
+        </section>
+        <section>
+            <code>
+&lt;canvas class=&quot;gpz-btn&quot;
+    data-gpz-bind=&quot;KeyF&quot;
+    data-gpz-color-action=&quot;black&quot;&gt;
+&lt;/canvas&gt;
+            </code>
+            <canvas class="gpz-btn" data-gpz-bind="" data-gpz-color-action="black"></canvas>
+        </section>
+    </main>
 </body>
 </html>
