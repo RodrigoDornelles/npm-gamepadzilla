@@ -9,9 +9,16 @@ body {
 
 
 pre[class*="language-"] {
+    display: flex;
     min-width: 60% !important;
+    min-height: 75px;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
     overflow: auto;
+    text-shadow: none !important;
     background-color: #191b1f;
     border: #61dafb 2px solid;
     /* make space  */
@@ -120,4 +127,12 @@ section:nth-child(odd) {
 
 section:nth-child(even) {
     background-color: #282c34;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    pre[class*="language-"] {
+        min-width: 100% !important;
+    }
+
 }
