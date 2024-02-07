@@ -9,6 +9,9 @@
 
 > A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. _No scripting required._
 
+ * :octocat: **source code:** <https://github.com/rodrigodornelles/npm-gamepadzilla>
+ * :gorilla: **demo website:** <https://rodrigodornelles.github.io/npm-gamepadzilla>
+
 | :video_game: Preview | :joystick: Features  |
 | :------------------- | :------------------- |
 [![virtual gamepad](https://raw.githubusercontent.com/RodrigoDornelles/RodrigoDornelles/master/media/gamepadzilla-1-0-1.gif)](https://rodrigodornelles.github.io/npm-gamepadzilla) | gpz is fast. _(no DOM manpulation)_<br/><br/>gpz is easy. _(no Javascript needed, use only html5 attributes)_<br/><br/>gpz is pure. _(made with only typescript without dependencies)_<br/><br/>gpz hates the van's old-man! |
