@@ -50,4 +50,11 @@ function getKeyCodes(from: KeycodeMap, txt: string) {
     return keycodes
 }
 
+export function tokens(attribute: string | undefined, defaultValue: string, count: number) {
+    const value = attribute? attribute: defaultValue
+    const splited = value.split(' ')
+    const values = splited.length === count? splited: (new Array(count)).fill(splited[0])
+    return values as Array<string> 
+}
+
 export {nestFinger, getKeyCodes, clamp, interpolation, normalize, desnormalize}

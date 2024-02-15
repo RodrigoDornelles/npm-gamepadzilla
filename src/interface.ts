@@ -36,6 +36,7 @@ export interface Vector2d {
 export enum ClassGpz {
     Joy = '.gpz-joy',
     Btn = '.gpz-btn',
+    Dpad = '.gpz-dpad',
 }
 
 export interface Keycode {
@@ -65,4 +66,5 @@ export interface ObjectGpz {
     fakekeys: Array<Keycode>
     axis2d: Vector2d | null
     buttons: Array<boolean> | null
+    chain: Array<(self: ObjectGpz) => void>
 }

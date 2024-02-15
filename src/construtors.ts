@@ -12,7 +12,7 @@ function construtors(): Array<ObjectGpz>  {
         .filter(el => el instanceof HTMLCanvasElement)
         .forEach(el => {
             /** @todo remove this magic string */
-            const axis = gpztype == 'Joy' ? {x: 0, y: 0}: null
+            const axis = gpztype !== 'Btn' ? {x: 0, y: 0}: null
             const canvas = el as HTMLCanvasElement
             const context = canvas.getContext('2d') as CanvasRenderingContext2D
             const keycodes = getKeyCodes(keycodesjson, el.dataset.gpzBind)
@@ -30,6 +30,7 @@ function construtors(): Array<ObjectGpz>  {
                 fakekeys: keycodes,
                 stateNew: new Array(keycodes.length).fill(false),
                 stateOld: new Array(keycodes.length).fill(false),
+                chain: []
             })
         })
     })

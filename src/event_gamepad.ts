@@ -1,5 +1,6 @@
 import { ClassGpz, ObjectGpz, GamepadFSM, Vector2d, EventGpz } from "./interface";
 import { handleGamepadAxis, handleGamepadButtons } from "./handlers";
+import { process } from "./engine";
 
 function getOnlineGamePads(device: Navigator) {
   return (device.getGamepads?.().filter(is => is?.connected) ?? []) as Array<Gamepad> 
@@ -12,7 +13,7 @@ function toggleEvent(device: Window, func: () => void) {
   }
 }
 
-function installEventGamepad(device: Window, pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
+function installEventGamepad(device: Window, pads: Array<ObjectGpz>)
 {
   let gamepadState: GamepadFSM = GamepadFSM.Offline
 

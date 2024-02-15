@@ -17,7 +17,8 @@ function virtualKeyboard(device: Keyboard, self: ObjectGpz) {
 
 const emu = {
     Joy: (self: ObjectGpz) => virtualKeyboard(window, self),
-    Btn: (self: ObjectGpz) => virtualKeyboard(window, self)
+    Btn: (self: ObjectGpz) => virtualKeyboard(window, self),
+    Dpad: (self: ObjectGpz) => virtualKeyboard(window, self),
 }
 
 export { emu, virtualKeyboard }

@@ -1,8 +1,9 @@
 import { ObjectGpz, EventGpz } from "./interface";
 import { TouchEvents } from "./interface";
 import { handleTouch } from "./handlers";
+import { process } from "./engine";
 
-function InstallEventTouch(device: Window, pads: Array<ObjectGpz>, process: (self: ObjectGpz) => void)
+function InstallEventTouch(device: Window, pads: Array<ObjectGpz>)
 {
     pads.forEach(self => {
         function eventMove(event: TouchEvent) {

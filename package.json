@@ -1,12 +1,12 @@
 {
     "name": "gamepadzilla",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "author": "RodrigoDornelles",
     "license": "AGPL-3.0-or-later",
     "homepage": "https://rodrigodornelles.github.io/npm-gamepadzilla/",
     "repository": "https://github.com/rodrigodornelles/npm-gamepadzilla/",
     "funding": "https://github.com/sponsors/RodrigoDornelles",
-    "bugs": "https://github.com/RodrigoDornelles/3bc-lang/issues",
+    "bugs": "https://github.com/RodrigoDornelles/npm-gamepadzilla/issues",
     "description": "A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. No scripting required.",
     "main": "dist/gamepadzilla.js",
     "keywords": [
@@ -27,12 +27,12 @@
         "test:coverage": "bun run test --coverage",
         "start": "bun run build:example && bun run build:watch",
         "build": "bun build --minify --outdir dist --target browser --entry-naming 'gamepadzilla.js' src/main.ts",
-        "build:watch": "bun run build --watch",
-        "build:example": "npm run build && cp examples/* dist"
+        "build:watch": "bun build --watch --outdir dist --target browser --entry-naming 'gamepadzilla.js' src/main.ts",
+        "build:example": "bun run build && cp examples/* dist"
     },
     "dependencies": {
     },
     "devDependencies": {
-        "bun": "^1.0.11"
+        "bun": "^1.0.25"
     }
 }

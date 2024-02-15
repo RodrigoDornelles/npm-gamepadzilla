@@ -9,6 +9,9 @@
 
 > A plug-and-play gamepad frontend framework for HTML5 mobile games, supporting both virtual and physical joysticks. _No scripting required._
 
+ * :octocat: **source code:** <https://github.com/rodrigodornelles/npm-gamepadzilla>
+ * :gorilla: **demo website:** <https://rodrigodornelles.github.io/npm-gamepadzilla>
+
 | :video_game: Preview | :joystick: Features  |
 | :------------------- | :------------------- |
 [![virtual gamepad](https://raw.githubusercontent.com/RodrigoDornelles/RodrigoDornelles/master/media/gamepadzilla-1-0-1.gif)](https://rodrigodornelles.github.io/npm-gamepadzilla) | gpz is fast. _(no DOM manpulation)_<br/><br/>gpz is easy. _(no Javascript needed, use only html5 attributes)_<br/><br/>gpz is pure. _(made with only typescript without dependencies)_<br/><br/>gpz hates the van's old-man! |
@@ -78,6 +81,7 @@ docker run --rm -v $(pwd):/app -w /app  -it ove/bun bun run build
 
 | html5 class | description |
 | :---------: | :---------- |
+| `gpz-dpad`  | virtual digital pad for directional input. |
 | `gpz-joy`   | virtual stick or gamepad analog for directional input. |
 | `gpz-btn`   | virtual circle buttons with various console layouts.   |
 
@@ -86,8 +90,12 @@ docker run --rm -v $(pwd):/app -w /app  -it ove/bun bun run build
 
 | html5 attribute | html5 class | description |
 | :-------------: | :---------: |:----------- |
-| `data-gpz-bind` | `gpz-joy`<br/>`gpz-btn`   | keyboard to emulate<br/>_(follows anti-clockwise button pattern like:<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>)_ |
-
+| `data-gpz-bind` | \*   | keyboard to emulate<br/>_(follows anti-clockwise button pattern like:<kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>)_ |
+| `data-gpz-vibrate` | \* | vibration animation when pressed for feedback | feedback vibration when interact |
+| `data-gpz-color` |  `gpz-dpad`<br/>`gpz-btn` | button colors when is not pressed |
+| `data-gpz-color-action` | `gpz-dpad`<br/>`gpz-btn` | buttons colors when is pressed |
+| `data-gpz-size` | `gpz-dpad` | size of shapes elements |
+| `data-gpz-offset` | `gpz-dpad` | size of gap in elements |
 <!--
 
 ### extra classes

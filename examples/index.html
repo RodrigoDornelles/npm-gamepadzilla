@@ -1,14 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Demo</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='gamepadzilla.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="gamepadzilla.js"></script>
+    <title>GamepadZilla - Demo</title>
+    <style>
+        *, *:after, *:before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 1024px;
+        }
+        pre {
+            padding: 8px;
+            text-wrap: wrap;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        code{
+            min-width: 640px;
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .center {
+            margin: 0 auto;
+        }
+        .color2 {
+            background-color: #ddd;
+        }
+        .title {
+            padding: 8px;
+        }
+        a {
+            margin: 8px 1px;
+            padding: 8px;
+            border-radius: 2px;
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            background-color: blue;
+        }
+        a:hover {
+            color: black;
+            background-color: yellow;
+        }
+        hr {
+            visibility: hidden;
+        }
+        @media (max-width: 900px) {
+            .container {
+                justify-content: space-evenly;
+            }
+            code {
+                min-width: initial;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body style="touch-action: none">
-    <canvas class="gpz-joy" data-gpz-bind="ArrowUp ArrowLeft ArrowDown ArrowRight"></canvas>
-    <canvas class="gpz-btn" data-gpz-color="yellow" data-gpz-bind="KeyF"></canvas>
+<body>
+    <main class="center">
+        <section class="title">
+            <h1>GamepadZilla - Demo</h1>
+            <a href="https://www.npmjs.com/package/gamepadzilla" target="_blank">NPM</a>
+            <a href="https://www.jsdelivr.com/package/npm/gamepadzilla" target="_blank">CDN</a>
+            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla" target="_blank">Github</a>
+        </section>
+        <section class="container">
+            <code>
+                <pre>
+&lt;canvas class=&quot;gpz-dpad&quot;
+    data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
+&lt;/canvas&gt;
+                </pre>
+            </code>
+            <canvas class="gpz-dpad" data-gpz-bind="" width="128" height="128"></canvas>
+        </section>
+        <section class="container color2">
+            <code>
+                <pre>
+&lt;canvas class=&quot;gpz-joy&quot;
+    data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
+&lt;/canvas&gt;
+                </pre>
+            </code>
+            <canvas class="gpz-joy" data-gpz-bind="" width="128" height="128"></canvas>
+        </section>
+        <section class="container">
+            <code>
+                <pre>
+&lt;canvas class=&quot;gpz-btn&quot;
+    data-gpz-bind=&quot;KeyF&quot;
+    data-gpz-color-action=&quot;black&quot;&gt;
+&lt;/canvas&gt;
+                </pre>
+            </code>
+            <canvas class="gpz-btn" data-gpz-bind="" data-gpz-color-action="black" width="128" height="128"></canvas>
+        </section>
+    </main>
 </body>
 </html>
