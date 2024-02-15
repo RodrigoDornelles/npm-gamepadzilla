@@ -4,38 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GamepadZilla - Demo</title>
-    <link rel="stylesheet" href="styles.css"></link>
     <script src="gamepadzilla.js"></script>
+    <title>GamepadZilla - Demo</title>
+    <style>
+        *, *:after, *:before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 1024px;
+            padding: 24px;
+        }
+        pre {
+            padding: 8px;
+            text-wrap: wrap;
+        }
+        code{
+            min-width: 40vmin;
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .center {
+            margin: 0 auto;
+        }
+        .color2 {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
-    <main>
+    <main class="center">
         <section>
             <h1>GamepadZilla - Demo</h1>
-            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla">https://github.com/RodrigoDornelles/npm-gamepadzilla</a>
+            <a href="https://www.npmjs.com/package/gamepadzilla" target="_blank">https://www.npmjs.com/package/gamepadzilla</a><br/>
+            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla" target="_blank">https://github.com/RodrigoDornelles/npm-gamepadzilla</a>
+            <br/><br/><br/>
         </section>
-        <section>
+        <section class="container">
             <code>
+                <pre>
 &lt;canvas class=&quot;gpz-dpad&quot;
     data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
 &lt;/canvas&gt;
+                </pre>
             </code>
             <canvas class="gpz-dpad" data-gpz-bind=""></canvas>
         </section>
-        <section>
+        <section class="container color2">
             <code>
+                <pre>
 &lt;canvas class=&quot;gpz-joy&quot;
     data-gpz-bind=&quot;ArrowUp ArrowLeft ArrowDown ArrowRight&quot;&gt;
 &lt;/canvas&gt;
+                </pre>
             </code>
             <canvas class="gpz-joy" data-gpz-bind=""></canvas>
         </section>
-        <section>
+        <section class="container">
             <code>
+                <pre>
 &lt;canvas class=&quot;gpz-btn&quot;
     data-gpz-bind=&quot;KeyF&quot;
     data-gpz-color-action=&quot;black&quot;&gt;
 &lt;/canvas&gt;
+                </pre>
             </code>
             <canvas class="gpz-btn" data-gpz-bind="" data-gpz-color-action="black"></canvas>
         </section>
