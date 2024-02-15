@@ -19,14 +19,13 @@
 
         main {
             max-width: 1024px;
-            padding: 24px;
         }
         pre {
             padding: 8px;
             text-wrap: wrap;
         }
         code{
-            min-width: 40vmin;
+            min-width: 640px;
         }
         .container {
             width: 100%;
@@ -40,15 +39,43 @@
         .color2 {
             background-color: #ddd;
         }
+        .title {
+            padding: 8px;
+        }
+        a {
+            margin: 8px 1px;
+            padding: 8px;
+            border-radius: 2px;
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            background-color: blue;
+        }
+        a:hover {
+            color: black;
+            background-color: yellow;
+        }
+        hr {
+            visibility: hidden;
+        }
+        @media (max-width: 900px) {
+            .container {
+                justify-content: space-evenly;
+            }
+            code {
+                min-width: initial;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <main class="center">
-        <section>
+        <section class="title">
             <h1>GamepadZilla - Demo</h1>
-            <a href="https://www.npmjs.com/package/gamepadzilla" target="_blank">https://www.npmjs.com/package/gamepadzilla</a><br/>
-            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla" target="_blank">https://github.com/RodrigoDornelles/npm-gamepadzilla</a>
-            <br/><br/><br/>
+            <a href="https://www.npmjs.com/package/gamepadzilla" target="_blank">NPM</a>
+            <a href="https://www.jsdelivr.com/package/npm/gamepadzilla" target="_blank">CDN</a>
+            <a href="https://github.com/RodrigoDornelles/npm-gamepadzilla" target="_blank">Github</a>
         </section>
         <section class="container">
             <code>
@@ -58,7 +85,7 @@
 &lt;/canvas&gt;
                 </pre>
             </code>
-            <canvas class="gpz-dpad" data-gpz-bind=""></canvas>
+            <canvas class="gpz-dpad" data-gpz-bind="" width="128" height="128"></canvas>
         </section>
         <section class="container color2">
             <code>
@@ -68,7 +95,7 @@
 &lt;/canvas&gt;
                 </pre>
             </code>
-            <canvas class="gpz-joy" data-gpz-bind=""></canvas>
+            <canvas class="gpz-joy" data-gpz-bind="" width="128" height="128"></canvas>
         </section>
         <section class="container">
             <code>
@@ -79,7 +106,7 @@
 &lt;/canvas&gt;
                 </pre>
             </code>
-            <canvas class="gpz-btn" data-gpz-bind="" data-gpz-color-action="black"></canvas>
+            <canvas class="gpz-btn" data-gpz-bind="" data-gpz-color-action="black" width="128" height="128"></canvas>
         </section>
     </main>
 </body>
