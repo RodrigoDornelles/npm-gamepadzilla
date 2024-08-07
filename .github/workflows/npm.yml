@@ -12,13 +12,13 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Delete large LICENSE file
         run: rm LICENSE
       -
         name: Restore node modules cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ./node_modules/
           key: npm-${{ hashFiles('package.json') }}
@@ -29,7 +29,7 @@ jobs:
         name: Build project
         run: npm run build
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
