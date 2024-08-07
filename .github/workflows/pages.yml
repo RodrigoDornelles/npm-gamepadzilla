@@ -48,7 +48,7 @@ jobs:
         uses: actions/configure-pages@v3
       -
         name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: website
           path: ./dist/
