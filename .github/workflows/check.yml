@@ -33,4 +33,7 @@ jobs:
         run: npm install
       -
         name: Check
-        run: npm run test:coverage
+        run: npm run test:reporter
+      -
+        name: Publish
+        run:bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
