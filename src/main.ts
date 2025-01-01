@@ -8,7 +8,7 @@ import { InstallEventHtml } from "./event_html";
 
 document.addEventListener('DOMContentLoaded', () => {
     const pads = construtors()
-    InstallEngine(pads)
+    InstallEngine(window, pads)
     InstallEventHtml(window, pads)
     InstallEventTouch(window, pads)
     InstallEventMouse(window, pads)
