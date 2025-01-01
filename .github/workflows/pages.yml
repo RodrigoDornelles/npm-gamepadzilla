@@ -3,6 +3,7 @@ name: Pages
 on:
   push:
     branches:
+      - main
     paths:
       - 'src/*'
       - '*.json'

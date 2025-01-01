@@ -33,7 +33,7 @@ jobs:
         run: npm install
       -
         name: Check
+        uses: paambaati/codeclimate-action@v2.2.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: npm run test:reporter
-      -
-        name: Publish
-        run:bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
