@@ -1,6 +1,6 @@
 {
     "name": "gamepadzilla",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "author": "RodrigoDornelles",
     "license": "AGPL-3.0-or-later",
     "homepage": "https://rodrigodornelles.github.io/npm-gamepadzilla/",
@@ -33,6 +33,6 @@
     "dependencies": {
     },
     "devDependencies": {
-        "bun": "^1.0.25"
+        "bun": "^1.0.42"
     }
 }
