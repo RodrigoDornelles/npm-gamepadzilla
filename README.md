@@ -4,6 +4,8 @@
 
 [![npm](https://img.shields.io/npm/dy/gamepadzilla?logo=npm&logoColor=fff&label=npm%20downloads)](https://www.npmjs.com/package/gamepadzilla)
 [![cdn](https://img.shields.io/jsdelivr/npm/hy/gamepadzilla?logo=jsdelivr&logoColor=fff&label=cdn%20downloads)](https://www.jsdelivr.com/package/npm/gamepadzilla)
+[![coverage](https://api.codeclimate.com/v1/badges/9f469fe6dac762f88bca/test_coverage)](https://codeclimate.com/github/RodrigoDornelles/npm-gamepadzilla/test_coverage)
+[![maintainability](https://api.codeclimate.com/v1/badges/9f469fe6dac762f88bca/maintainability)](https://codeclimate.com/github/RodrigoDornelles/npm-gamepadzilla/maintainability)
 
 </div>
 
