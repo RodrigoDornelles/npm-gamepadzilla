@@ -86,7 +86,7 @@ docker run --rm -v $(pwd):/app -w /app  -it ove/bun bun run build
 | `gpz-dpad`  | virtual digital pad for directional input. |
 | `gpz-joy`   | virtual stick or gamepad analog for directional input. |
 | `gpz-btn`   | virtual circle buttons with various console layouts.   |
-
+| `gpz-btn4`  | virtual set of four action buttons for game controls. |
 
 ### data attributes
 

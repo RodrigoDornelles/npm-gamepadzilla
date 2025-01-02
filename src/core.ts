@@ -27,6 +27,7 @@ function core2dAxis (self: ObjectGpz) {
 const core = {
     Joy: core2dAxis,
     Dpad: core2dAxis,
+    Btn4: core2dAxis,
     Btn(self: ObjectGpz) {
         self.stateOld = [...self.stateNew]
         if (self.from == EventGpz.Touch) {

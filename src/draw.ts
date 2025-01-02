@@ -15,6 +15,22 @@ export function drawCircle(ctx: CanvasRenderingContext2D, fill: string, r: numbe
 }
 
 const draw = {
+    Btn4(self: ObjectGpz) {
+        const centerX: number = self.canvas.width/2;
+        const centerY: number = self.canvas.height/2;
+        const radius: number = 20
+        const colors = [ 
+            self.stateNew[0]? 'yellow': '#88888880', 
+            self.stateNew[1]? 'blue': '#88888880',
+            self.stateNew[2]? 'red': '#88888880', 
+            self.stateNew[3]? 'green': '#88888880',
+        ]
+        self.ctx2d.clearRect(0, 0, self.canvas.width, self.canvas.height)
+        drawCircle(self.ctx2d, colors[0], radius, {x: centerX, y: centerY/2})
+        drawCircle(self.ctx2d, colors[1], radius, {x: centerX/2, y: centerY})
+        drawCircle(self.ctx2d, colors[2], radius, {x: centerX, y: centerY + (centerY/2)})
+        drawCircle(self.ctx2d, colors[3], radius, {x: centerX + (centerX/2), y: centerY})
+    },
     Btn(self: ObjectGpz) {
         const centerX: number = self.canvas.width / 2;
         const centerY: number = self.canvas.height / 2;
