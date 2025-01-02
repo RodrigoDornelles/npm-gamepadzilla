@@ -26,6 +26,7 @@ post your open-source game using gamepadzilla!
 | game | stack | source |
 | :--- | :---- | :----: | 
 | [Coco Battle Royale 2](https://psywave-games.github.io/coco-battle-royale-2) | C, Assembly 6502, WebAssembly, Html, gampadzila.js | [:octocat:repo](https://github.com/psywave-games/coco-battle-royale-2) | 
+| [Pong](https://pong.gamely.com.br)<br/>[CapyBird](https://capybird.gamely.com.br)<br/>[AsteroidsTV](https://asteroids.gamely.com.br)<br/> | Lua, Gly Engine, WebAssembly, Html, gampadzila.js | [:octocat:repo](https://github.com/gamelly/gly-engine) | 
 
 ## How to use
 
