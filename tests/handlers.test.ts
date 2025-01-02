@@ -34,6 +34,8 @@ test('handleGamepadAxis should return an array of Vector2d', () => {
 test('handleGamepadButtons should return an array of pressed button indices', () => {
   const gamepad = {buttons: [{ pressed: false }, { pressed: false }, { pressed: true }]}
   const result = handleGamepadButtonsMock(gamepad)
-  expect(result).toHaveLength(1)
-  expect(result[0]).toBe(2)
+  expect(result).toHaveLength(3)
+  expect(result[0]).toBe(false)
+  expect(result[1]).toBe(false)
+  expect(result[2]).toBe(true)
 })

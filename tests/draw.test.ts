@@ -4,6 +4,7 @@ import { draw, drawCircle } from "../src/draw"
 const drawJoyMock = (o: any) => draw['Joy'](o)
 const drawBtnMock = (o: any) => draw['Btn'](o)
 const drawDpadMock = (o: any) => draw['Dpad'](o)
+const drawBtn4Mock = (o: any) => draw['Btn4'](o)
 const drawCircleMock = (a: any, b: any, c: any, d: any, e: any) => drawCircle(a, b, e, {x: c, y: d})
 
 test("drawCircle should draw a filled circle with the correct attributes", () => {
@@ -103,6 +104,26 @@ test("Dpad should draw correctly based on stateNew", () => {
     }
 
     drawDpadMock(gpz)
+
+    expect(gpz.ctx2d.clearRect).toHaveBeenCalledWith(0, 0, 100, 100)
+})
+
+test("Btn4 should draw correctly based on stateNew", () => {
+    const gpz = {
+        canvas: { width: 100, height: 100, dataset: { gpzSize: '16', color: '#aaaaaa80' } },
+        stateNew: [false, false, true, false],
+        ctx2d: {
+            fillStyle: "",
+            beginPath: jest.fn(),
+            arc: jest.fn(),
+            fill: jest.fn(),
+            stroke: jest.fn(),
+            closePath: jest.fn(),
+            clearRect: jest.fn()
+        },
+    }
+
+    drawBtn4Mock(gpz)
 
     expect(gpz.ctx2d.clearRect).toHaveBeenCalledWith(0, 0, 100, 100)
 })
