@@ -34,7 +34,7 @@ function handleGamepadAxis(gamepad: Gamepad) {
 }
 
 function handleGamepadButtons(gamepad: Gamepad) {
-    return gamepad.buttons.map((is, button) => is.pressed && button).filter(id => id !== false) as Array<number>
+    return gamepad.buttons.map(is => is.pressed) as Array<boolean>
 }
 
 export {handleMouse, handleTouch, handleGamepadAxis, handleGamepadButtons}

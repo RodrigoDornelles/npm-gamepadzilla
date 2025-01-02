@@ -17,21 +17,21 @@ function installEventGamepad(device: Window, pads: Array<ObjectGpz>)
 {
   let gamepadState: GamepadFSM = GamepadFSM.Offline
 
-  const joypads = pads.filter(self => self.type == ClassGpz.Joy)
-  const buttonpads = pads.filter(self => self.type == ClassGpz.Btn)
+  const joypads = pads.filter(self => self.type == ClassGpz.Joy || self.type == ClassGpz.Dpad)
+  const buttonpads = pads.filter(self => self.type == ClassGpz.Btn || self.type == ClassGpz.Btn4)
 
-  function processButtons(buttons: Array<number>) {
+  function processButtons(buttons: Array<boolean>) {
     buttonpads.forEach(self => {
-      if (!self.stateNew[0] && buttons.length > 0) {
-        self.from = EventGpz.Gamepad
-        self.buttons = [true]
-        process(self)
+      if (self.buttons == null) {
+        self.buttons = new Array(self.stateNew.length).fill(false)
       }
-      if (self.stateNew[0] && buttons.length == 0) {
+      self.stateNew.forEach((_, index) => {
+        if (self.buttons && buttons[index] != self.stateNew[index]) {
           self.from = EventGpz.Gamepad
-          self.buttons = [false]
-          process(self)
-      }
+          self.buttons[index] = buttons[index]
+        }
+      })
+      process(self)
     })
   }
 
