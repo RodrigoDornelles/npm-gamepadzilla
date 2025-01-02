@@ -1,7 +1,7 @@
 import { expect, test, jest } from "bun:test";
 import { InstallEventFeedback, vibration } from "../src/event_feedback";
 
-const vibrationMock = (a: any, b: any) => vibration(a, b);
+const vibrationMock = (a: any, b: any) => vibration(a, b, {click: true});
 const InstallEventFeedbackMock = (a: any, b: any) => InstallEventFeedback(a, b);
 
 test("vibration: calls device.vibrate with correct parameters", () => {
@@ -44,6 +44,7 @@ test("vibration: calls device.vibrate without parameters", () => {
 
 test("InstallEventFeedback: install success", () => {
     const device = {
+        addEventListener: () => {},
         navigator: {
             vibrate: jest.fn(),
         },
@@ -62,6 +63,7 @@ test("InstallEventFeedback: install success", () => {
 
 test("InstallEventFeedback: install failed", () => {
     const device = {
+        addEventListener: () => {},
         navigator: {},
     };
 

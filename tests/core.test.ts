@@ -4,6 +4,7 @@ import { EventGpz } from "../src/interface";
 
 const coreJoyMock = (o: any) => core['Joy'](o)
 const coreBtnMock = (o: any) => core['Btn'](o)
+const coreBtn4Mock = (o: any) => core['Btn4'](o)
 
 test("core joy: 1100 -> 000 (touch)", () => {
   const gpz = {
@@ -33,4 +34,18 @@ test("core gpz: click on button (touch)", () => {
     coreBtnMock(gpz)
     expect(gpz.stateOld).toEqual([false])
     expect(gpz.stateNew).toEqual([true])
+})
+
+test("core btn4: gamepad input updates state", () => {
+  const gpz = {
+    from: EventGpz.Gamepad,
+    buttons: [true, false, true],
+    stateOld: [false, false, false],
+    stateNew: [false, false, false],
+  };
+
+  coreBtn4Mock(gpz)
+
+  expect(gpz.stateOld).toEqual([false, false, false])
+  expect(gpz.stateNew).toEqual([true, false, true])
 })

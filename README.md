@@ -4,6 +4,8 @@
 
 [![npm](https://img.shields.io/npm/dy/gamepadzilla?logo=npm&logoColor=fff&label=npm%20downloads)](https://www.npmjs.com/package/gamepadzilla)
 [![cdn](https://img.shields.io/jsdelivr/npm/hy/gamepadzilla?logo=jsdelivr&logoColor=fff&label=cdn%20downloads)](https://www.jsdelivr.com/package/npm/gamepadzilla)
+[![coverage](https://api.codeclimate.com/v1/badges/9f469fe6dac762f88bca/test_coverage)](https://codeclimate.com/github/RodrigoDornelles/npm-gamepadzilla/test_coverage)
+[![maintainability](https://api.codeclimate.com/v1/badges/9f469fe6dac762f88bca/maintainability)](https://codeclimate.com/github/RodrigoDornelles/npm-gamepadzilla/maintainability)
 
 </div>
 
@@ -24,6 +26,7 @@ post your open-source game using gamepadzilla!
 | game | stack | source |
 | :--- | :---- | :----: | 
 | [Coco Battle Royale 2](https://psywave-games.github.io/coco-battle-royale-2) | C, Assembly 6502, WebAssembly, Html, gampadzila.js | [:octocat:repo](https://github.com/psywave-games/coco-battle-royale-2) | 
+| [Pong](https://pong.gamely.com.br)<br/>[CapyBird](https://capybird.gamely.com.br)<br/>[AsteroidsTV](https://asteroids.gamely.com.br)<br/> | Lua, Gly Engine, WebAssembly, Html, gampadzila.js | [:octocat:repo](https://github.com/gamelly/gly-engine) | 
 
 ## How to use
 
@@ -84,7 +87,7 @@ docker run --rm -v $(pwd):/app -w /app  -it ove/bun bun run build
 | `gpz-dpad`  | virtual digital pad for directional input. |
 | `gpz-joy`   | virtual stick or gamepad analog for directional input. |
 | `gpz-btn`   | virtual circle buttons with various console layouts.   |
-
+| `gpz-btn4`  | virtual set of four action buttons for game controls. |
 
 ### data attributes
 
